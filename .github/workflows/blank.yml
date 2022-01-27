@@ -3,9 +3,12 @@
 name: CI
 
 # Controls when the workflow will run
+# on specifies the trigger event
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
+  # Several events, separated by identation
   push:
+  # If you don't list the branch, then any branch triggers the event
     branches: [ main ]
   pull_request:
     branches: [ main ]
@@ -23,9 +26,11 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      # Checks out the repo to the runner to be run
       - uses: actions/checkout@v2
 
       # Runs a single command using the runners shell
+      # Anything that can be run in terminal
       - name: Run a one-line script
         run: echo Hello, world!
 
